@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+News
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>Все посты</h1>
+{{ posts }}
+<h1>Все товары</h1>
+<hr>
+{% if posts %} <!-- Если есть товары, то выводим таблицу с ними -->
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <div>
+            {{ post.author.first }}
+        </div>
+        <div>
+                {{ post.text|truncatechars:100 }} <!-- дописываем специальный фильтр, чтобы ограничить количество символов до 20. Все остальные символы превратятся в многоточие. -->
+        </div>
+        <hr/>
+    {% endfor %}
+    </table>
+{% else %}
+    <h2>Новостей нет!</h2>
+{% endif %}
+{% endblock content %}

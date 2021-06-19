@@ -1,0 +1,13 @@
+{% extends 'flatpages/default.html' %}
+
+<!-- Название у нас будет proudcts -->
+{% block title %}
+Post
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим сам товар, айди которого было передано в адрес -->
+{% block content %}
+<h1>{{ post.title }}</h1>
+<h2>{{ post.author }}</h2>
+<div>{{ post.text }}</div>
+{% endblock content %}
